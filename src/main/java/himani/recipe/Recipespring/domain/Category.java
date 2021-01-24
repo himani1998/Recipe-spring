@@ -38,4 +38,12 @@ public class Category {
     public void setRecipe(Set<Recipe> recipe) {
         this.recipe = recipe;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
