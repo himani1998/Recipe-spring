@@ -1,6 +1,7 @@
 package himani.recipe.Recipespring.services;
 
 import himani.recipe.Recipespring.domain.Ingredient;
+import himani.recipe.Recipespring.domain.Recipe;
 import himani.recipe.Recipespring.repositories.IngredientRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,11 @@ public class IngredientsImplService implements IngredientService{
         Optional<Ingredient> ingredient= ingredientRepository.findById(id);
         if(ingredient.isPresent()){
            Ingredient ingredient1= ingredient.get();
-           ingredient1.setRecipe(null);
+           Recipe recipe=ingredient1.getRecipe();
+           recipe.setIngredients(null);
+           recipe.setNotes(null);
+           recipe.setCategories(null);
+           ingredient1.setRecipe(recipe);
            return ingredient1;
         }
         return null;
