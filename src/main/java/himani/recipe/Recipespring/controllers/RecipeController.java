@@ -2,8 +2,10 @@ package himani.recipe.Recipespring.controllers;
 
 import himani.recipe.Recipespring.domain.Recipe;
 import himani.recipe.Recipespring.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 public class RecipeController {
     private final RecipeService recipeService;

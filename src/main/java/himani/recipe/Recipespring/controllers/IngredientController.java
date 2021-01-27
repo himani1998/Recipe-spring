@@ -4,6 +4,7 @@ import himani.recipe.Recipespring.domain.Ingredient;
 import himani.recipe.Recipespring.domain.Recipe;
 import himani.recipe.Recipespring.services.IngredientService;
 import himani.recipe.Recipespring.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
 
+@Slf4j
 @RestController
 public class IngredientController {
     private final RecipeService recipeService;
@@ -35,7 +37,7 @@ public class IngredientController {
 
     @RequestMapping("recipe/{recipeid}/ingredient/save")
          public Ingredient saveIngredient(@PathVariable String recipeid ,@RequestBody Ingredient ingredient){
-        ingredient.setRecipe(recipeService.findById(Long.parseLong(recipeid)));
+        //ingredient.setRecipe(recipeService.findById(Long.parseLong(recipeid)));
         return ingredientService.save(ingredient);
     }
     @RequestMapping("ingredient/{id}/delete")
